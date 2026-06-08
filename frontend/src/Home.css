@@ -1,0 +1,93 @@
+/* Home.css - Futuristic Theme */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 80px; /* Offset for navbar */
+  width: 100%;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  animation: fadeInUp 0.8s ease backwards;
+}
+
+.home-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.action-btn {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  padding: 40px 20px;
+  border-radius: var(--border-radius);
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform var(--transition-smooth);
+}
+
+.action-btn:hover {
+  transform: translateY(-10px);
+  background: var(--bg-panel-hover);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--shadow-glow);
+}
+
+.action-btn:hover::before {
+  transform: scaleX(1);
+}
+
+/* Responsive Grid */
+@media (max-width: 900px) {
+  .quick-actions {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .action-btn {
+    padding: 30px;
+  }
+}

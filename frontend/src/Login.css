@@ -1,0 +1,98 @@
+/* Login.css - Futuristic Theme */
+.login-form {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-glass);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 450px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeInUp 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: var(--accent-gradient);
+}
+
+.login-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-input-group label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-input-group input {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--border-glass);
+  padding: 15px;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.login-input-group input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.login-btn-submit {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-top: 10px;
+}
+
+.login-btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(129, 140, 248, 0.4);
+}
+
+.login-footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.login-footer a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.login-footer a:hover {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--accent-cyan);
+}

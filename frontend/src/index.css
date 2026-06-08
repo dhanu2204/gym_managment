@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Professional Slate/Indigo Theme */
+  --bg-dark: #0f172a; /* Slate 900 */
+  --bg-panel: rgba(30, 41, 59, 0.7); /* Slate 800 with opacity */
+  --bg-panel-hover: rgba(51, 65, 85, 0.9); /* Slate 700 */
+  
+  --accent-cyan: #38bdf8; /* Light Blue 400 */
+  --accent-purple: #818cf8; /* Indigo 400 */
+  --accent-gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  
+  --text-primary: #f8fafc; /* Slate 50 */
+  --text-secondary: #cbd5e1; /* Slate 300 */
+  --text-success: #34d399; /* Emerald 400 */
+  --text-warning: #fbbf24; /* Amber 400 */
+  --text-danger: #f87171; /* Red 400 */
+
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --border-glass-glow: rgba(56, 189, 248, 0.3);
+  
+  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.2);
+  --shadow-hover: 0 10px 30px rgba(129, 140, 248, 0.3);
+  
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --border-radius: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: radial-gradient(circle at top right, rgba(129, 140, 248, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Global Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); }
+  100% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Glassmorphism Utility Class */
+.glass-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  background: var(--bg-panel-hover);
+  border-color: var(--border-glass-glow);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px);
+}
+
+/* Futuristic Button Utility */
+.cyber-button {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--accent-cyan);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  z-index: 1;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--accent-gradient);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-smooth);
+}
+
+.cyber-button:hover::before {
+  transform: scaleX(1);
+}
+
+.cyber-button:hover {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+  border-color: transparent;
+}
+
+/* Title Utility */
+.cyber-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-align: center;
+  animation: fadeInUp 0.8s ease backwards;
+}
+
+/* Container Utility */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px 40px; /* Top padding accounts for fixed navbar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.6s ease backwards;
+}
+
+.auth-container { justify-content: center; align-items: center; }

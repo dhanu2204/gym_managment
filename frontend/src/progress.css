@@ -1,0 +1,87 @@
+/* progress.css - Futuristic Theme */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 5vh auto;
+    padding: 0 20px;
+  }
+  
+  .dashboard-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: var(--transition-smooth);
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+  
+  .dashboard-card:hover::before {
+    opacity: 1;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .card-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  
+  .card-unit {
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+    font-weight: 600;
+  }
+  
+  .card-subtitle {
+    font-size: 0.95rem;
+    margin-top: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  @media (max-width: 900px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+.calories-remaining { color: var(--text-warning); }
